@@ -4,24 +4,14 @@ import knex from './../database/knex'
 const routes = Router();
 
 // Nova rota para buscar palestrante por evento
-routes.get('/evento/:eventoId', async (req, res) => {
-  const eventoId = req.params.eventoId;
-
+routes.get('/', async (req, res) => {
   try {
-    const palestrante = await knex('palestrante')
-      .where({ evento_id: eventoId })
-      .first();
-
-    if (!palestrante) {
-       res.status(404).json({ mensagem: 'Nenhum palestrante encontrado para este evento' });
-       return
-    }
-
-    res.json([palestrante]); 
+    const palestrantes = await knex('palestrante').select('*');
+    res.json(palestrantes);
   } catch (error) {
-    console.error('Erro ao buscar palestrante por evento:', error);
-    res.status(500).json({ erro: 'Erro interno no servidor' });
+    res.status(500).json({ mensagem: 'Erro ao listar palestrantes' });
   }
 });
+
 
 export default routes;

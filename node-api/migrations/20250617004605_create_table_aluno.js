@@ -9,7 +9,7 @@ exports.up = function (knex) {
     table.string("email").notNullable();
     table.integer("matricula_ra").notNullable(); 
     table.string("password").notNullable(); 
-    table.integer('evento_id').unsigned().notNullable() .references('evento_id').inTable('evento'); 
+    table.integer('eve_id').unsigned().notNullable() .references('eve_id').inTable('evento'); 
   });
 };
 
