@@ -26,7 +26,7 @@ routes.get('/eventos-com-alunos', async (req, res) => {
     const eventosComAlunos = evento.map(evento => {
       return {
         ...evento,
-        aluno: aluno.filter(aluno => aluno.eve_id === evento.id)
+        aluno: aluno.filter(aluno => aluno.eve_id === evento.eve_id)
       };
     });
 

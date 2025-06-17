@@ -10,7 +10,7 @@ routes.get('/:id', async (req, res) => {
   try {
     const aluno = await knex('aluno')
       .join('evento', 'aluno.eve_id', 'evento.eve_id')
-      .leftJoin('palestrante', 'evento.eve_id', 'palestrante.eve_id')
+      .leftJoin('palestrante', 'evento.palestrante_id', 'palestrante.palestrante_id') // ✔️ Correção aplicada aqui
       .where('aluno.aluno_id', alunoId)
       .select(
         'aluno.nome as aluno_nome',
@@ -41,9 +41,13 @@ routes.get('/:id', async (req, res) => {
     doc.moveDown();
     doc.fontSize(16).text(`Certificamos que ${aluno.aluno_nome} (RA: ${aluno.matricula_ra})`);
     doc.text(`participou do evento "${aluno.evento_nome}",`);
-    doc.text(`com palestra ministrada por ${aluno.palestrante_nome}.`);
-    doc.moveDown();
-    doc.fontSize(14).text(`Tema: ${aluno.palestrante_descr}`, { align: 'justify' });
+    
+    if (aluno.palestrante_nome) {
+      doc.text(`com palestra ministrada por ${aluno.palestrante_nome}.`);
+      doc.moveDown();
+      doc.fontSize(14).text(`Tema: ${aluno.palestrante_descr}`, { align: 'justify' });
+    }
+
     doc.moveDown();
     doc.text('Atenciosamente, Coordenação Acadêmica - UniALFA', { align: 'right' });
 
@@ -53,5 +57,6 @@ routes.get('/:id', async (req, res) => {
     res.status(500).json({ mensagem: 'Erro ao gerar o certificado' });
   }
 });
+
 
 export default routes;
