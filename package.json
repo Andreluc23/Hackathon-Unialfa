@@ -1,1 +1,28 @@
-{}
+{
+  "name": "hackathon-unialfa",
+  "version": "1.0.0",
+  "description": "Projeto desenvolvido durante o Hackathon institucional da UniALFA.  \r Este sistema integra conhecimentos práticos das disciplinas de **Java OOP**, **Node.js**, **PHP Avançado**, **UX** e **DevOps**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andreluc23/Hackathon-Unialfa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andreluc23/Hackathon-Unialfa/issues"
+  },
+  "homepage": "https://github.com/Andreluc23/Hackathon-Unialfa#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "knex": "^3.1.0",
+    "migration": "^0.3.0",
+    "mysql2": "^3.14.1",
+    "typecript": "^0.0.1-security"
+  }
+}

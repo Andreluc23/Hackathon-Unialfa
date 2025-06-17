@@ -202,6 +202,7 @@ main {
     color: var(--text-muted-color);
     max-width: 650px;
     margin: 0 auto;
+    
 }
 
 /* --- Filters --- */
@@ -363,11 +364,23 @@ footer {
 footer {
     background-color: rgba(13, 13, 13, 0.5);
     padding: 3rem 0 1rem;
-    color: #ecf0f1;
+    color: #ffffff;
 }
 
+footer a {
+  color: #bdc3c7;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+
 /* Conteúdo do footer (as 3 colunas) */
-.footer-container {
+.footer-col-md-4 {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -376,12 +389,12 @@ footer {
     gap: 3rem;
 }
 
-.footer-section h2 {
+.footer-footer-title h5 {
     margin-bottom: 1rem;
     color: #ecf0f1;
 }
 
-.footer-section p {
+.footer-footer-title p {
     color: #bdc3c7;
     margin-bottom: 1rem;
 }
@@ -393,6 +406,7 @@ footer {
 
 .footer-links li {
     margin-bottom: 0.5rem;
+    
 }
 
 .footer-links a {
@@ -402,7 +416,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: #3498db;
+    color: #ffffff;
 }
 
 /* Rodapé final com direitos etc. */
